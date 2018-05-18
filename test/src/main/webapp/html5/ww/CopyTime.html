@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <script>
+      var w = new Worker("echo.js");
+	  ab = new ArrayBuffer(1024*1024*100);
+      w.onmessage = function(event) {
+		alert('Took '+(new Date()-start) +' ms.');
+      }
+	  start = new Date();
+	  w.postMessage(ab);
+    </script>
+  </body>
+</html>

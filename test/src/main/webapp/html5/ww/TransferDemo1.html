@@ -1,0 +1,45 @@
+<html>
+  <body>
+    Time taken without object transfer : <output id="result"></output> ms.<br>
+    <script>
+	
+      var w = new Worker("echo.js");
+	/*  ab = new ArrayBuffer(1024*1024*100);
+      w.onmessage = function(event) {
+		document.getElementById("result").innerHTML=(new Date()-start);
+      }
+	  start = new Date();
+	  w.postMessage(ab);
+	  */
+	  obj = {data1: new ArrayBuffer(20), data2: new Int8Array(10)};
+	  alert(obj);
+	  //w.postMessage(obj,  [obj.data1, obj.data2.buffer]);
+	  w.postMessage(obj,  [obj.data2.buffer]);
+	  alert(obj.data1.byteLength+' '+obj.data2.buffer.byteLength);
+	alert(obj);
+	/*
+	var buffer = new ArrayBuffer(10);
+    var int8View = new Int8Array(buffer);
+	alert(int8View.buffer);
+	str='';
+	for(i in int8View)
+	  str+=i+' '+int8View[i];
+	  alert(str);
+	  w.postMessage(obj,[obj.data]);
+	  alert(obj.data.byteLength);
+	  alert(obj.name.length);
+	  */
+	  /*
+	  var w = new Worker("echo.js");
+ab = new ArrayBuffer(1024*1024*100);
+alert(ab.byteLength); 		//displays 104857600
+w.postMessage(ab);			//object copy
+alert(ab.byteLength); 		//displays 104857600
+w.postMessage(ab, [ab]);	//object is moved
+alert(ab.byteLength); 		//displays 0
+//w.postMessage(ab, [ab]);	//error no further transfer
+//alert(ab.byteLength); 		//displays 0
+*/
+    </script>
+  </body>
+</html>

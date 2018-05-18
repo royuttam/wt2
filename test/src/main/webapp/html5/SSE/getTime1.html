@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="time"></div>
+<script>
+if(typeof(EventSource) != "undefined") {
+	es = new EventSource("time.php");
+	es.onmessage = function(evt) {
+		document.getElementById("time").innerHTML = evt.data;
+	};
+	/*es.addEventListener("message", function(evt) {
+		document.getElementById("time").innerHTML = evt.data;
+	}, false);
+	*/
+} else 
+document.getElementById("time").innerHTML = "Your browser does not support SSE...";
+</script>
+</body>
+</html>
+

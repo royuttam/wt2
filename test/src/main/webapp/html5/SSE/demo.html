@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="time"></div>
+<script>
+if(typeof(EventSource) != "undefined") {
+	es = new EventSource("demo.jsp");
+	es.onmessage = function(evt) {
+	    //alert(evt.data);
+		//var data = evt.data.replace(/\n/g,"");
+		//alert(evt.data);
+		//words = words.replace(/\n/g, " ");
+		document.getElementById("time").innerHTML = evt.data;
+
+		//var data = JSON.parse(evt.data);
+		//alert(data.user+' '+data.loginTime);
+
+	};
+	es.addEventListener('login', function(evt) {
+	   var data = JSON.parse(evt.data);
+	   var user = data.user;
+	   var loginTime = data.loginTime;
+		document.getElementById("time").innerHTML = user +' logged in at '+loginTime;
+		}, false );
+} else 
+document.getElementById("time").innerHTML = "Your browser does not support SSE...";
+</script>
+</body>
+</html>
+

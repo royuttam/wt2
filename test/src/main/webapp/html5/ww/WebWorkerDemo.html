@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button> 
+<button onclick="stopWorker()">Stop Worker</button>
+<br><br>
+
+<script>
+var w;
+function send() {
+    setTimeout("send()",1000);
+    //w.postMessage('main:'+new Date());
+w.postMessage(5);
+}
+
+/*function startWorker() {
+   // if(typeof(Worker) !== "undefined") {
+//        if(typeof(w) == "undefined") {
+            //var w = new Worker("demo_workers.js");
+  //      }
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+//    } else {
+  //      document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+    }
+}
+*/
+/*function stopWorker() { 
+    w.terminate();
+    w = undefined;
+}*/
+w = new Worker("demo_workers.js");
+r= '';
+w.onmessage = function(event) {
+            
+//            document.getElementById("result").innerHTML = event.data;
+document.getElementById("result").innerHTML=document.getElementById("result").innerHTML+'<br> '+event.data;
+        };
+send();
+</script>
+
+</body>
+</html>

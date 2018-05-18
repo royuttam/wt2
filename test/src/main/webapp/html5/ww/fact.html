@@ -1,0 +1,16 @@
+<!--fact.html-->
+<!DOCTYPE html>
+<html>  
+  <body>
+    <script>
+	  if (window.Worker) { 
+		var fw = new Worker("fact.js");
+		fw.onmessage = function(e) {
+		  document.getElementById("result").innerHTML = e.data;
+		};
+		fw.postMessage(5); 
+	  } else alert('Your browser does not support Worker');
+    </script>
+    <span id="result"></span> 
+  </body>
+</html>

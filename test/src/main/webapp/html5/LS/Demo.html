@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+  <body>
+    <script type="text/javascript">
+	  if (typeof(Storage) !== "undefined") {
+        if( localStorage.count )
+            localStorage.count = Number(localStorage.count) +1;         
+        else  localStorage.count = 1;         
+          document.write('Visit count :' + localStorage.count);
+      } else {
+        alert('Browser does not support web storage');
+      }         
+      </script>
+   </body>
+</html>

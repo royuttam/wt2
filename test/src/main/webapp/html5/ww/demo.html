@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    Factorial table: <output id="result"></output>
+    <script>
+      function create() {
+        for(i=0;i<=5;i++)
+          w.postMessage(i);
+      }
+      var w = new Worker("demo.js");
+	  arrayBuffer = new ArrayBuffer(1024*1024*100);
+	  //alert(arrayBuffer.byteLength);
+	  start = new Date();
+	  //alert(start);
+	  //w.postMessage(arrayBuffer, [arrayBuffer]);
+	  w.postMessage(arrayBuffer);
+	  //alert(arrayBuffer.byteLength);
+	  
+      w.onmessage = function(event) {
+        e = document.getElementById("result");
+        //e.innerHTML=e.innerHTML+'<br> '+event.data;
+		//alert(new Date()-start);
+		e.innerHTML=e.innerHTML+'<br> '+(new Date()-start);
+      }
+	  w.postMessage();
+      //create();
+    </script>
+  </body>
+</html>

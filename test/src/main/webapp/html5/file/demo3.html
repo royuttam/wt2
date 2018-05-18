@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <style>
+      #outer {
+        width: 300px;
+        height: 20px;
+        background-color: lightgray;
+      }
+      #inner {
+        width: 10%;
+        height: 20px;
+        background-color: blue;
+      }
+    </style>
+    <input type="file" id="files" name="files[]" /><br><br>
+	<div id="outer" >
+      <div id="inner" ></div>
+    </div>
+    <script>
+      if (window.File && window.FileReader && window.FileList && window.Blob) {
+		document.getElementById('files').onchange = function(evt) {
+	      files = evt.target.files; 
+	      for (i = 0; i <files.length; i++) {		
+            var reader = new FileReader();		  
+			reader.onprogress = function(evt) {
+			var percentLoaded = Math.round((evt.loaded / evt.total) * 100);
+              document.getElementById('inner').setAttribute("style","width:"+percentLoaded+"%");
+			}
+		    reader.readAsDataURL(files[i]);
+		  }		  
+	    }
+      } else  alert('Your browser does not fully support the File APIs');
+    </script>
+  </body>
+</html>

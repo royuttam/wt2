@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="result"></div>
+<div id="result1"></div>
+
+<script>
+if(typeof(EventSource) !== "undefined") {
+    //var source = new EventSource("time.jsp");
+    //source.onmessage = function(event) {
+/*     new EventSource("time.jsp").onmessage = function(event) {
+        document.getElementById("result").innerHTML += event.data + "<br>";
+    };
+*/
+
+es = new EventSource("score.jsp");
+
+str='';
+for (i in es) 
+str=str+i+' : '+es[i]+'<br>';
+        document.getElementById("result").innerHTML =str;
+
+es.onmessage = function(event) {
+        document.getElementById("result").innerHTML += 'Score: '+event.data + "<br>";
+    };
+	/*
+es.onopen = function(event) {
+        document.getElementById("result").innerHTML += event.data + "<br>";
+    };*/
+
+/*
+es.addEventListener('message', function(e) {
+  document.getElementById("result").innerHTML += event.data + "<br>";
+}, false);
+
+es.addEventListener('open', function(e) {
+  document.getElementById("result").innerHTML += event.data + "<br>";
+}, false);
+
+es.addEventListener('error', function(e) {
+  document.getElementById("result").innerHTML += event.data + "<br>";
+}, false);
+*/
+
+
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+
+</body>
+</html>
+

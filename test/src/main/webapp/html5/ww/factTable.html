@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    Factorial table: <output id="result"></output>
+    <script>
+      function create() {
+        for(i=0;i<=5;i++)
+          w.postMessage(i);
+      }
+      var w = new Worker("fact1.js");
+      w.onmessage = function(event) {
+        e = document.getElementById("result");
+        e.innerHTML=e.innerHTML+'<br> '+event.data;
+      }
+      create();
+    </script>
+  </body>
+</html>

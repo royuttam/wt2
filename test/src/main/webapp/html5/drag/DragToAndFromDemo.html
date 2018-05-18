@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      #target1, #target2, #target3 {float:left;width:100px;height:70px;padding:10px;border:1px solid gray; margin:10px;}
+    </style>
+    <script>
+      function dragOver(de) {
+        de.preventDefault();
+      }
+      function dragStart(de) {
+        de.dataTransfer.setData("text", de.target.id);
+      }
+      function drop(de) {
+        de.preventDefault();
+		//de.dataTransfer.effectAllowed = "copy";
+		//de.dataTransfer.dropEffect     = "copy";
+
+        var id = de.dataTransfer.getData("text");
+	    de.target.appendChild(document.getElementById(id));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="target1" ondrop="drop(event)" ondragover="dragOver(event)">
+      <img id="drag1" src="W3C.jpg" draggable="true" ondragstart="dragStart(event)" height="69">
+    </div>
+    <div id="target2" ondrop="drop(event)" ondragover="dragOver(event)"></div>	
+	 <div id="target3" ondrop="drop(event)" ondragover="dragOver(event)"></div>	
+  </body>
+</html>

@@ -1,0 +1,166 @@
+  <html>
+    <body>
+      <script>
+        const bookData = [
+          { isbn: '0198066228', title: 'Web Technologies', price: 565 },
+          { isbn: '0199455503', title: 'Advanced Java Programming', price: 695}
+        ];
+
+        if(window.indexedDB) {
+	      var db;
+	      var req = window.indexedDB.deleteDatabase("myDB");
+	      request = indexedDB.open("myDB", 1);	
+	      request.onupgradeneeded = function(event) { 
+            db = event.target.result;
+		    if (!db.objectStoreNames.contains('books')) 
+		      //var bookStore = db.createObjectStore('books');         
+              var bookStore = db.createObjectStore('books', { keyPath: 'isbn' });         
+		      //var bookStore = db.createObjectStore('books', { autoIncrement: true });         		  
+		  
+          };
+	      request.onerror = function(event) {
+            alert("Some error occurred");
+          };
+          request.onsuccess = function(event) {	  
+	        // Work with IndexedDB   
+            db = event.target.result;
+	       //alert(db.transaction(["books"]));
+	       var trans = db.transaction(['books'], 'readwrite');	  
+	       var bookStore = trans.objectStore('books');	  
+	       trans.oncomplete = function(event) {
+             alert("Transaction completed successfully");
+		/*
+  		    var trans = db.transaction(['books'], 'readonly');	  
+		    var bookStore = trans.objectStore('books');	  		
+		    req = bookStore.get('0199455503');
+            req.onsuccess =  function(event) {
+		      obj = event.target.result;
+		      for(i in obj) document.writeln(i+': '+obj[i]+'<br>');
+            };
+		*/		
+		//Short hand notation
+		/*
+		    db.transaction(['books'], 'readonly').objectStore('books').get('0199455503').onsuccess =  function(event) {
+		      obj = event.target.result;
+		      for(i in obj) document.writeln(i+': '+obj[i]+'<br>');
+            };
+			*/
+		
+		/*
+		    var trans = db.transaction(['books'], 'readwrite');	  
+		    var bookStore = trans.objectStore('books');	  		
+		    req = bookStore.get('0199455503');
+            req.onsuccess =  function(event) {
+		      obj = event.target.result;
+		      document.writeln('Before: <br>');
+		      for(i in obj) document.writeln(i+': '+obj[i]+', ');
+		      obj.price = 799;	
+		  
+ 		      trans.oncomplete = function(event) {
+		        db.transaction(['books'], 'readonly').objectStore('books').get('0199455503').onsuccess =  function(event) {
+		        obj = event.target.result;
+			    document.writeln('<br>After: <br>');
+		        for(i in obj) document.writeln(i+': '+obj[i]+', ');
+              };
+            };
+		  
+		    //bookStore.put(obj); 
+		    bookStore.put(obj).onsuccess = function(event) {
+              alert('Data updated successfully!');
+            };
+          };
+        	*/	
+			
+			/*
+		  var bookStore = db.transaction(['books'], 'readwrite').objectStore('books');	  		
+		  bookStore.get('0199455503').onsuccess =  function(event) {
+		    obj = event.target.result;
+		    obj.price = 799;	
+		    bookStore.put(obj).onsuccess = function(event) {
+              alert('Data updated successfully!');
+            };
+          };
+			*/
+			
+  	      db.transaction(['books'], 'readonly').objectStore('books').openCursor().onsuccess = function(event) {
+            var cursor = event.target.result;
+            if (cursor) {
+		      document.writeln('<br>'+cursor.key);
+		      for(i in cursor.value) document.writeln(i+': '+cursor.value[i]+',');
+              cursor.continue();
+            }
+          };
+			
+			
+		  var bookStore = db.transaction(['books'], 'readwrite').objectStore('books');	  		
+		  bookStore.get('0199455503').onsuccess =  function(event) {
+		    obj = event.target.result;
+		    obj.price = 799;	
+		    bookStore.put(obj).onsuccess = function(event) {
+              alert('Data updated successfully!');
+			  db.transaction(['books'], 'readonly').objectStore('books').openCursor().onsuccess = function(event) {
+                var cursor = event.target.result;
+                if (cursor) {
+		          document.writeln('<br>'+cursor.key);
+		          for(i in cursor.value) document.writeln(i+': '+cursor.value[i]+',');
+                  cursor.continue();
+                }
+              };			
+            };
+          };
+					
+        };
+        trans.onerror = function(event) {
+          alert('Error occurred during transaction');
+        };
+	    trans.onabort = function(event) {
+          alert('Transaction aborted');
+        };	
+	  
+	    for(i in bookData) bookStore.add(bookData[i]);  
+	  //for(i in bookData) bookStore.add(bookData[i], i);  
+
+	  	  
+	  /*
+	  var bookStore = db.transaction(['books'], 'readonly').objectStore('books');	  			  
+	  bookStore.openCursor().onsuccess = function(event) {
+	  //bookStore.openCursor(IDBKeyRange.bound("0199455502", "0199455510"),'next').onsuccess = function(event) {
+        var cursor = event.target.result;
+        if (cursor) {
+		  document.writeln('<br>'+cursor.key);
+		  for(i in cursor.value) document.writeln(i+': '+cursor.value[i]+',');
+          cursor.continue();
+        }
+        else  alert("No more data!");		
+      };
+	  
+	   
+	   var bookStore = db.transaction(['books'], 'readwrite').objectStore('books');	  			  
+	   req = bookStore.delete('0199455503');
+	   req.onsuccess = function(event) {
+	   var bookStore = db.transaction(['books'], 'readonly').objectStore('books');	  			  
+	  bookStore.openCursor().onsuccess = function(event) {
+	  //bookStore.openCursor(IDBKeyRange.bound('0199455502', '0199455510'),'next').onsuccess = function(event) {
+        var cursor = event.target.result;
+        if (cursor) {
+		  document.writeln('<br>'+cursor.key);
+		  for(i in cursor.value) document.writeln(i+': '+cursor.value[i]+',');
+          cursor.continue();
+        }
+        else  alert("No more data found!");		
+      };
+	  };
+	  */
+	  
+      };
+	
+
+      } else {
+	  alert('Browser does support a stable version of IndexedDB');
+      // Browser does support a stable version of IndexedDB	  
+      }
+ 
+ //for(i in window) document.writeln(i+' '+window[i]+'<br>');
+    </script>
+  </body>
+</html>

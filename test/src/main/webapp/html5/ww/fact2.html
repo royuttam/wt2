@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>  
+  <body>
+    <script>
+      function process() {
+	    if (window.Worker) { 
+		  var fw = new Worker("fact.js");
+		  fw.onmessage = function(e) {
+			document.getElementById("result").innerHTML = e.data;
+		  };
+		  fw.postMessage(document.getElementById("no").value); 
+	    }
+	    else alert('Your browser does not support Worker');
+      }
+    </script>
+    <input type="text" id="no" value="1" size="1"> !
+    <input type="button" value="=" onClick=process()><span id="result"></span> 
+  </body>
+</html>

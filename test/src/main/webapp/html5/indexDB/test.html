@@ -1,0 +1,39 @@
+<html>
+  <body>
+    <script>
+      const bookData = [
+        { isbn: '0198066228', title: 'Web Technologies', price: 565 },
+        { isbn: '0199455503', title: 'Advanced Java Programming', price: 695}
+      ];
+      if(window.indexedDB) {
+	     var db;
+		  var req = window.indexedDB.deleteDatabase("myDB");
+	     request = indexedDB.open("myDB", 1);	
+	     request.onupgradeneeded = function(event) { 
+          db = event.target.result;
+		    if (!db.objectStoreNames.contains('books')) 
+            var bookStore = db.createObjectStore('books', { keyPath: 'isbn' });         
+		  
+        };
+	     request.onerror = function(event) {
+          alert("Some error occurred");
+        };
+        request.onsuccess = function(event) {	  
+          db = event.target.result;
+	       var trans = db.transaction(['books'], 'readwrite');	  
+  	       var bookStore = trans.objectStore('books');	  
+	       trans.oncomplete = function(event) {
+				alert("Transaction completed successfully");
+		    };
+          trans.onerror = function(event) {
+            alert('Error occurred during transaction');
+          };
+	       trans.onabort = function(event) {
+            alert('Transaction aborted');
+          };		  
+	       for(i in bookData) bookStore.add(bookData[i]);  
+        };
+	   } else alert('Browser does support a stable version of IndexedDB');
+    </script>
+  </body>
+</html>

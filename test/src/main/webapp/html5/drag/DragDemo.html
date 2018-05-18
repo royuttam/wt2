@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      #target {width:100px;height:70px;padding:10px;border:1px solid gray;}
+    </style>
+   <script>
+      function dragEnter(de) {
+        de.preventDefault();
+      }
+      function dragOver(de) {
+        de.preventDefault();
+      }
+      function dragStart(de) {
+	  	    //for(i in de.dataTransfer) document.writeln(i+' '+de.dataTransfer[i] +'<br>');
+			de.dataTransfer.effectAllowed = "copy";
+        de.dataTransfer.setData("text/plain", de.target.id);
+		/*
+		var img = new Image(); 
+        img.src = 'img_w3slogo.gif';   
+        de.dataTransfer.setDragImage(img, 10, 10);
+		*/
+      }
+      function drop(de) {
+	    de.preventDefault();    
+	    var id = de.dataTransfer.getData("text/plain");
+	    de.target.appendChild(document.getElementById(id));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="target" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragover="dragOver(event)" ></div>
+    <img id="w3c" src="W3C.jpg" draggable="true" ondragstart="dragStart(event)" height="69">
+  </body>
+</html>

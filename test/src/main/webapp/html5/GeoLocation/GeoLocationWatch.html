@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="loc"></p>
+    <script>
+      function success(position) {
+	    alert('a');
+        var p = document.getElementById("loc");
+        p.innerHTML = 'latitude='+position.coords.latitude+', longitude='+position.coords.longitude;
+		
+		for(i in position) document.writeln(i+': '+position[i]+'<br>');
+		for(i in position.coords) document.writeln(i+': '+position.coords[i]+'<br>');
+		document.writeln(new Date());
+
+	  }
+	  function failure(error) {
+	    switch(error.code) {
+	      case error.PERMISSION_DENIED:
+		    alert('Denied to access Geolocation.'); break;
+	      case error.POSITION_UNAVAILABLE:
+		    alert('Location information is unavailable.'); break;
+	      case error.TIMEOUT:
+		    alert('Timeout occurs during accessing Geolocation'); break;
+	    }
+      }	  
+	  
+	  var options = { enableHighAccuracy: true, timeout: 1000,	maximumAge : 0};
+      if (navigator.geolocation) navigator.geolocation.watchPosition(success, failure, options);
+      else alert('Geolocation is not supported by your browser.');
+    </script>
+  </body>
+</html>

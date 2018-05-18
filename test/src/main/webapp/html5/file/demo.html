@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="file" onchange='readFiles(event)'  multiple />
+	<!--<input type="file" id='files' multiple />-->
+    <output id="info"></output>
+    <script>
+      // Check for File API support.
+      if (window.File && window.FileReader && window.FileList && window.Blob) {
+	    //document.getElementById('files').onchange = readFiles; 
+		function readFiles(evt) {
+	      var files = evt.target.files; // files is a FileList of File objects. 
+		  str='<br>';
+	      for (var i = 0; i <files.length; i++) {		    
+			str += 'name = '+files[i].name;
+			str += ', size = '+files[i].size;
+			str += ', type = '+files[i].type+'<br>';
+		  }
+		  document.getElementById('info').innerHTML = str;
+	    }
+      } else  alert('Your browser does not fully support the File APIs');
+    </script>
+  </body>
+</html>

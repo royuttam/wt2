@@ -1,0 +1,23 @@
+<!DOCTYPE HTML >
+<!--demo.html-->
+<html manifest="sample.appcache">
+<!-- ... -->
+<body>
+abc
+<script>
+function onUpdateReady() {
+  alert('found new version!');
+}
+window.applicationCache.addEventListener('updateready', onUpdateReady);
+window.applicationCache.update();
+/*
+alert('status: '+window.applicationCache.status);
+if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+  onUpdateReady();
+}
+*/
+
+//for(i in window.applicationCache) document.writeln(i+' ' +window.applicationCache[i]+'<br>');
+</script>
+</body>
+</html>

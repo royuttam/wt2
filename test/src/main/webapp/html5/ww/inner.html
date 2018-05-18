@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<!--inner.html-->
+<span id="result">Inner:</span>
+<script>
+  var sw = new SharedWorker('hello.js');
+  sw.port.onmessage = function(e) {
+   document.getElementById('result').innerHTML += '<br>'+e.data ;
+  }
+  sw.port.postMessage('Jerry');
+</script>

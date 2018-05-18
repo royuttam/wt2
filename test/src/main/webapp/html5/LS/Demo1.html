@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+  <body>
+    <script type="text/javascript">
+	  if (typeof(Storage) !== "undefined") {
+        if( sessionStorage.count )
+		  document.write('Last access time :' + sessionStorage.count);
+		 sessionStorage.count = new Date(); 
+      } 	  
+      else {
+        alert('Browser does not support web storage');
+      }         
+      </script>
+   </body>
+</html>

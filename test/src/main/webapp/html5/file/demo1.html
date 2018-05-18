@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <style>
+      #file_area {width:180px;height:20px;padding:10px;border:1px dotted black;}
+    </style>
+    <div id="file_area">Drag and drop files here</div>
+    <output id="info"></output>
+    <script>
+      var filearea = document.getElementById('file_area');
+      filearea.ondragover = function(evt) {
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = 'copy'; 
+      }
+      filearea.ondrop= function (evt) {  
+        evt.preventDefault();
+        var files = evt.dataTransfer.files; 
+	    str='';
+	    for (var i = 0; i <files.length; i++) {
+           str += 'name = '+files[i].name;
+           str += ', size = '+files[i].size;
+           str += ', type = '+files[i].type+'<br>';
+	    }
+	    document.getElementById('info').innerHTML = str;
+      }  
+    </script>
+  </body>
+</html>

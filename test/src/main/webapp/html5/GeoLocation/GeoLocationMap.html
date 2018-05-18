@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="map"></p>
+    <script>
+      function success(position) {
+        url = "http://maps.googleapis.com/maps/api/staticmap?zoom=14&size=500x200&sensor=false&center="+position.coords.latitude+","+position.coords.longitude;
+        document.getElementById("map").innerHTML = "<img src='"+url+"'>";
+	  }
+	  function failure(error) {
+	    switch(error.code) {
+	      case error.PERMISSION_DENIED:
+		    alert('Denied to access Geolocation.');
+		    break;
+	      case error.POSITION_UNAVAILABLE:
+		    alert('Location information is unavailable.');
+		    break;
+	      case error.TIMEOUT:
+		    p.innerHTML = "The request to get user location timed out."
+		    break;
+	    }
+      }	  
+      if (navigator.geolocation) navigator.geolocation.getCurrentPosition(success, failure);
+      else alert('Geolocation is not supported by your browser.');
+    </script>
+  </body>
+</html>

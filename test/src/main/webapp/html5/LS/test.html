@@ -1,0 +1,117 @@
+<script>
+/*
+sessionStorage.abc="aaaa";
+//alert(sessionStorage.abc)
+alert(sessionStorage);
+//if (typeof Storage != 'undefined') {
+if (typeof localStorage != 'undefined') {
+  // window.localStorage is available!
+	alert('supports localStorage');
+} else {
+  // no native support for HTML5 storage :(
+  // maybe try dojox.storage or a third-party solution
+	alert('does not support localStorage');
+}
+*/
+function storageHandler(se){
+      
+      alert("storage event occurs"+se);
+	  //for(i in se) document.writeln(i+' '+se[i]+'<br>');
+    }
+if (typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+	//for(i in window) document.writeln(i+' ' +window[i]+'<br>');
+	
+	
+	//window.addEventListener('storage', storageHandler, true);	
+	//localStorage.removeItem("name");
+    //localStorage.setItem("name", "Tom");
+	
+	
+	//sessionStorage.setItem("name", "Jerry");
+	//alert('b');
+	/*
+	localStorage.name = "Tom";
+	sessionStorage.name = "Jerry";
+	
+	name1= localStorage.name;					//name1 = "Tom"
+	name2 = sessionStorage.name;				//name2 = "Jerry"
+		
+	//Store values
+	localStorage["name"] = "Tom";
+	sessionStorage["name"] = "Jerry";
+	
+	//Retrieve them	
+	name1= localStorage["name"];				//name1 = "Tom"
+	name2 = sessionStorage["name"];				//name2 = "Jerry"
+		
+	//Store values
+	localStorage.setItem("name", "Tom");
+	sessionStorage.setItem("name", "Jerry");
+	
+	//Retrieve them	
+	name1= localStorage.getItem("name");		//name1 = "Tom"
+	name2 = sessionStorage.getItem("name");		//name2 = "Jerry"
+	alert(name1+' '+name2);
+	
+	//Store values
+	localStorage.setItem("name", "Tom");
+	sessionStorage.setItem("name", "Jerry");
+	
+	n1 = localStorage.length;
+	n2 = sessionStorage.length;
+	alert(n1+' '+n2);
+	
+	for(var n=0; n < localStorage.length; n++){
+      var key = localStorage.key(n);
+      document.writeln(key+' ' +localStorage.getItem(key)+'<br>');
+    }
+	
+	*/
+	
+	info = {loginTime:new Date(), from:window.navigator.appName};
+	localStorage["Tom"]=info;
+	info = localStorage["Tom"];
+	//localStorage["Tom"]=JSON.stringify(info);
+	//info = JSON.parse(localStorage["Tom"]);
+	
+	//alert(localStorage["Tom"]);
+	//for(i in info) document.write(i+' '+info[i]+'<br>');
+	for(i in info) document.write(info[i]);
+	
+	/*
+	
+	
+	
+	//delete sessionStorage.name;
+    //delete localStorage.name;
+	
+	
+	localStorage.removeItem ("name");
+	sessionStorage.removeItem ("name");
+	
+	//Retrieve them	
+	name1= localStorage.getItem("name");		//name1 = "Tom"
+	name2 = sessionStorage.getItem("name");		//name2 = "Jerry"
+	alert(name1+' '+name2);
+	
+	
+	localStorage.setItem("name", "Tom");
+	sessionStorage.setItem("name", "Jerry");
+	
+	
+	alert(localStorage.length+' '+sessionStorage.length);
+	localStorage.clear();
+	sessionStorage.clear();	
+	alert(localStorage.length+' '+sessionStorage.length);
+	
+	for(i in sessionStorage) document.writeln(i+' '+sessionStorage[i]+'<br>')
+*/	
+    
+    
+	
+} else {
+    // Sorry! No Web Storage support..
+	//alert('does not support web storage');
+}
+</script>

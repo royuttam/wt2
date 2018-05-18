@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!--
+<svg height="100" >
+  <svg  x="50" y="30">
+  </svg>
+  <svg  x="50" y="70">
+  </svg>
+</svg>
+<br>
+<svg>
+  <path d="M0,0 L50, 50 L100, 0 z"  fill="none" stroke="red" />
+</svg>
+<br>
+<svg>
+  <path d="M0,0"/>
+</svg>
+
+<br>
+-->
+<svg height="1000" width="1000">
+
+<circle cx="0" cy="0" r="4" >
+  <animateMotion
+    path="M 100,100 A100,25 0 1,1 101,100" stroke="blue"
+    begin="0s" dur="5s" repeatCount="indefinite"
+  />
+</circle>
+
+
+
+
+<!--
+  <path d="M0,0 0,100" stroke="red"/>
+  <path d="M0,0 L0,100" stroke="red"/>
+  <path d="M0,0 L100,100" stroke="red"/>
+  <path d="M0,0 L100,100 200, 100" stroke="red" fill="none"/>
+  <path d="M0,0 H100" stroke="red"/>  
+  <path d="M0,0 V100" stroke="red"/>
+  
+  <path d="M100,200 C100,150 250,250 250,200"
+                                       stroke="red" fill="none"/>
+									   
+  <circle cx="100" cy="200" r="3" stroke="blue" stroke-width="1" fill="none" />
+  <circle cx="250" cy="200" r="3" stroke="blue" stroke-width="1" fill="none" />
+  <circle cx="100" cy="150" r="3" stroke="blue" stroke-width="1" fill="gray" />
+  <circle cx="250" cy="250" r="3" stroke="blue" stroke-width="1" fill="gray" />
+  
+  <line x1="100" y1="200" x2="100" y2="150" style="stroke:gray"/>
+  <line x1="250" y1="200" x2="250" y2="250" style="stroke:gray"/>
+ 
+ 
+ <path d="M100,200 C100,150 250,250 250,200 S400,300 400,200"
+                                       stroke="red" fill="none"/>
+									   
+  <circle cx="100" cy="200" r="3" stroke="blue" stroke-width="1" fill="none" />
+  <circle cx="250" cy="200" r="3" stroke="blue" stroke-width="1" fill="none" />
+  <circle cx="100" cy="150" r="3" stroke="blue" stroke-width="1" fill="gray" />
+  <circle cx="250" cy="250" r="3" stroke="blue" stroke-width="1" fill="gray" />
+  
+  <circle cx="250" cy="150" r="3" stroke="blue" stroke-width="1" fill="gray" />
+  <circle cx="400" cy="200" r="3" stroke="blue" stroke-width="1" fill="gray" />
+  <circle cx="400" cy="300" r="3" stroke="blue" stroke-width="1" fill="gray" />
+  
+  <line x1="100" y1="200" x2="100" y2="150" style="stroke:gray"/>
+  <line x1="250" y1="200" x2="250" y2="250" style="stroke:gray"/>
+  <line x1="250" y1="200" x2="250" y2="150" style="stroke:gray"/>
+  <line x1="400" y1="200" x2="400" y2="300" style="stroke:gray"/>
+ 
+ 
+  
+  <path d="M100,100 Q100,50 200,100 T300,100"
+        fill="none" stroke="red" stroke-width="1"  />
+		
+		<circle cx="100" cy="100" r="3" stroke="blue" stroke-width="1" fill="none" />
+		<circle cx="200" cy="100" r="3" stroke="blue" stroke-width="1" fill="none" />
+		<circle cx="300" cy="100" r="3" stroke="blue" stroke-width="1" fill="none" />
+		
+		<circle cx="100" cy="50" r="3" stroke="blue" stroke-width="1" fill="gray" />
+		<circle cx="300" cy="150" r="3" stroke="blue" stroke-width="1" fill="gray" />
+		
+		<line x1="100" y1="100" x2="100" y2="50" style="stroke:gray"/>
+		<line x1="100" y1="50" x2="300" y2="150" style="stroke:gray"/>
+		<line x1="300" y1="100" x2="300" y2="150" style="stroke:gray"/>
+		
+
+<path d="M 100,100 A100,25 0 0,0 250,100" style="fill:none; stroke:red; stroke-width:1"/>		
+<path d="M 100,100 A100,25 0 1,0 250,100" style="fill:none; stroke:green; stroke-width:1"/>		
+<path d="M 100,100 A100,25 0 0,1 250,100" style="fill:none; stroke:blue; stroke-width:1"/>		
+<path d="M 100,100 A100,25 0 1,1 250,100" style="fill:none; stroke:black; stroke-width:1"/>		
+
+<g id="aCircle" >
+  <circle cx="50" cy="50" r="30" stroke-width="1" stroke="black" fill="olive"/>
+</g>
+<use xlink:href="#aCircle"  x="0" y="0" />
+<use xlink:href="#aCircle" x="60" y="0" />
+<use xlink:href="#aCircle" x="30" y="52" />
+
+
+<defs>
+  <circle id="aCircle" cx="50" cy="50" r="30" stroke-width="1" stroke="black" fill="olive"/>
+</defs>
+<use xlink:href="#aCircle"  x="0" y="0" />
+<use xlink:href="#aCircle" x="60" y="0" />
+<use xlink:href="#aCircle" x="30" y="52" />
+
+
+<svg width="400" height="300"  viewBox="0 0 200 100" >
+    <rect x="10" y="10" width="100" height="50"
+          style="stroke: black; fill:none;stroke-width:1"/>
+</svg>
+-->
+
+</svg>
+<!--
+<svg width="500" height="400">
+		  <ellipse id="anEllipse" cx="100" cy="200" rx="100" ry="50" fill="gray" />
+</svg>
+<input type="button" value="Change" onclick="changeRy()"/>
+<script>
+    function changeRy() {
+	    ry = parseInt(document.getElementById("anEllipse").getAttribute("ry"));
+		document.getElementById("anEllipse").setAttribute("ry",(ry+10)+"");
+    }
+</script>
+-->
+
+<!--
+<svg height="100" >
+   <line x1="10" y1="10" x2="200" y2="50" style="stroke:red;stroke-width:4"/>
+</svg>
+
+<br>
+<svg width="300" height="100">
+  <rect x="20" y="20" width="200" height="50" style="fill:rgb(0,255,0);stroke-width:4;stroke:rgb(0,0,0)" />
+</svg>
+<br>
+
+<svg width="300" height="100">
+  <rect x="20" y="20" width="200" height="50" rx="10" ry="10" style="fill:rgb(0,255,0);stroke-width:4;stroke:rgb(0,0,0)" />
+</svg>
+<br>
+
+<svg width="150" height="150">
+  <circle cx="60" cy="60" r="50" stroke="blue" stroke-width="4" fill="pink" />
+</svg>
+<br>
+
+<svg height="200">
+  <ellipse cx="100" cy="50" rx="100" ry="50" fill="gray" />
+</svg>
+<br>
+
+<svg height="50">
+  <polyline points="0,50 0,0 40,0 40,50 80,50 80,0 120,0 120 50" style="fill:white;stroke:black"/>
+</svg>
+<br>
+
+<svg id="svgelem" height="200" xmlns="http://www.w3.org/2000/svg">
+  <polygon  points="0,40 60,0 120,40 120,120 60,160 0,120" fill="red" />
+</svg>
+<br>
+-->
+<svg width="1000" height="1000">
+<!--
+  <text x="20" y="50" style="fill:olive; font-size:50px;">
+     Hello World!
+  </text>  
+    <text y="50" style="fill:olive; font-size:50px;">
+	  <tspan x="20">Hello</tspan>
+	  <tspan x="20" dy="50">World!</span>
+    </text>	
+	<text x="20" y="50" style="fill:olive; font-size:50px;">
+	  <tspan>x</span>
+	  <tspan x="50" style="baseline-shift: super;font-size:30px;">i
+	  <tspan x="50" style="baseline-shift: sub;font-size:30px;">j
+    </text>
+	
+  <defs>
+        <text id="hello" >Hello</text>
+  </defs>  
+  <use x="50" y="20" xlink:href="#hello" /><text x="90" y="20">Tom</text> 
+  <use x="50" y="50" xlink:href="#hello" /><text x="90" y="50">World</text> 
+  
+<path id="aPath"  d="M100,200 C200,100 250,300 400,200" fill="none"/>
+<text style="font-size:20px;">
+  <textPath xlink:href="#aPath" >
+    SVG stands for Sclable Vector Graphics.
+  </textPath>
+</text>
+
+<a xlink:href="index.html">
+  <text x="100" y="20">index.html</text>
+</a>
+-->
+<!--
+<rect x="50" y="50" height="110" width="110"
+          style="stroke:#ff0000; fill: #ccccff"
+          transform="translate(30) rotate(45 50 50)"
+            >
+    </rect>
+    <text x="70" y="100"
+          transform="translate(30) rotate(45 50 50)"
+    >Hello World</text>
+
+<ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" />
+<ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" transform="translate(50, 20)"/>
+<circle cx="200" cy="100" r="1" stroke="blue" stroke-width="1" fill="none" />
+<circle cx="250" cy="120" r="1" stroke="blue" stroke-width="1" fill="none" />
+<line x1="200" y1="100" x2="250" y2="120" stroke="blue" stroke-width="1" fill="none" />
+
+<ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" />
+<ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" transform="matrix(1,0,0,1,50,20)"/>
+<circle cx="200" cy="100" r="1" stroke="blue" stroke-width="1" fill="none" />
+<circle cx="250" cy="120" r="1" stroke="blue" stroke-width="1" fill="none" />
+<line x1="200" y1="100" x2="250" y2="120" stroke="blue" stroke-width="1" fill="none" />
+
+<ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" />
+<ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" transform="scale(1.2, 1.2)"/>
+
+<rect x="100" y="100" width="100" height="50" style="stroke-width:1;stroke:black;fill:none"/>
+<rect x="100" y="100" width="100" height="50" style="stroke-width:1;stroke:black;fill:none" transform="skewX(50)"/>
+<rect x="100" y="100" width="100" height="50" style="stroke-width:1;stroke:black;fill:none" transform="skewY(30)"/>
+
+<path d="M200,100 L300, 100 350, 150 250, 150 z" stroke="red" fill="none"/> 
+<path d="M200,100 L300, 100 350, 150 250, 150 z" stroke="red" fill="none" transform="translate(350,0) scale(1, 1) "/> 
+<line x1="350" y1="0" x2="350" y2="100" />
+<line x1="175" y1="75" x2="175" y2="175" style="stroke:gray"/>
+-->
+
+<!--
+  <ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" />
+    <ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" transform="rotate(60 200 100)"/>
+  <ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" transform="rotate(120 200 100)"/>
+  -->
+  <!--
+  
+  
+  <g fill="none"  stroke="black" stroke-width="1">
+    <line x1="0" y1="0" x2="200" y2="0"  />
+    <line x1="0" y1="0" x2="0" y2="100" />
+    <text x="10" y="30" >Original coordinate system</text>
+  </g>
+  
+  <g transform="translate(50, 50)" fill="none"  stroke="black" stroke-width="1">
+    <line x1="0" y1="0" x2="200" y2="0"  />
+    <line x1="0" y1="0" x2="0" y2="100" />
+    <text x="10" y="30" >New coordinate system</text>
+  </g>
+  
+  
+  <ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none" stroke-dasharray="5,5"/>
+  <ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none">
+    <set attributeName="ry" attributeType="XML"  to="50" begin="1s"/>
+  </ellipse>
+
+  <ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none"/>
+  <ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none">
+    <animate attributeName="ry" attributeType="XML"
+             from="30"  to="100"
+             begin="0s" dur="1s"
+             repeatCount="indefinite"/>
+  </ellipse>
+ 
+ <circle cx="200" cy="100" r="100" stroke="blue" fill="none" stroke-dasharray="5,5"/>
+ <ellipse cx="200" cy="100" rx="100" ry="30" stroke="blue" fill="none">
+  <animateTransform
+            attributeName="transform"
+            begin="0s"
+            dur="1s"
+            type="rotate"
+            from="0 200 100"
+            to="360 200 100"
+            repeatCount="indefinite"
+			/>
+  </ellipse>
+   
+<circle cx="0" cy="0" r="4" >
+  <animateMotion
+    path="M 100,100 A100,25 0 1,1 101,100" stroke="blue"
+    begin="0s" dur="5s" repeatCount="indefinite"
+  />
+</circle>
+  <path d="M 100,100 A100,25 0 1,1 101,100" style="fill:none; stroke:black; stroke-width:1"/>
+  
+  
+  <defs>
+    <linearGradient id="lg"  x1="0%" y1="0%" x2="100%" y2="0%" >
+      <stop offset="0%"   stop-color="pink" />
+      <stop offset="100%" stop-color="black" />
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="150" height="80" style="stroke:url(#lg);fill:red;stroke-width: 5" />
+  
+  <defs>
+    <radialGradient id="rg" fx="50%" fy="50%" r="100%" >
+      <stop offset="0%"   stop-color="white" />
+      <stop offset="100%" stop-color="black" />
+    </radialGradient>
+  </defs>
+  <circle cx="60" cy="60" r="60"  style="fill:url(#rg); />
+  
+  <defs>
+    <pattern id="aPattern" x="20" y="20" width="20" height="20" patternUnits="userSpaceOnUse" >
+      <circle cx="10" cy="10" r="10" style="stroke: none; fill: gray" />
+	</pattern>
+  </defs>
+  <circle cx="60" cy="60" r="60"  style="fill:url(#aPattern); />
+  
+  
+ <defs> 
+  <marker id="point" markerWidth="8" markerHeight="8" refX="5" refY="5">
+    <circle cx="5" cy="5" r="3" />
+  </marker>
+  <marker id="arrow" markerWidth="15" markerHeight="15" refX="3" refY="7" orient="auto">
+    <path d="M3,1 L3,14 15,7" />
+  </marker>
+</defs>
+
+<path d="M10,10 L100,10" style="stroke: red; marker-start: url(#point); marker-end: url(#arrow);" />
+
+<path d="M100,10 L100,100" style="stroke: red; marker-start: url(#point); marker-end: url(#arrow);" />
+  -->
+  
+  <defs>
+    <filter id="gb" x="-10" y="-10" width="200" height="200">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="10" />
+    </filter>
+</defs>
+<rect x="50" y="50" width="100" height="60" style="filter: url(#gb);" />    
+</svg>
+
+
+	<br>
+	
+	<svg viewBox="00 0 100 100" >       
+  <image xlink:href="W3C.jpg" x="10" y="0" height="50" width="50"/>
+</svg>
+	<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 128 128"
+        >
+    <circle cx="64" cy="64" r="32" style="fill: #00ccff;"></circle>
+
+</svg>
+	
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+                   <filter id="f1" x="0" y="0"
+                             width="200%" height="200%">
+                         <feOffset result="offOut" in="SourceAlpha"
+                              dx="20" dy="20"/>
+                         <feGaussianBlur result="blurOut"
+                               in="offOut" stdDeviation="10"/>
+                         <feBlend in="SourceGraphic"
+                                in2="blurOut" mode="normal"/>
+                    </filter>
+         </defs>
+          <rect width="90" height="90" stroke="green"
+                   stroke-width="3" fill="yellow" filter="url(#f1)"/>
+</svg>
+
+<svg width="400" height="180">
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="150"
+  style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+</svg>
+<br>
+
+
+
+
+<svg id="svgelem" height="200" xmlns="http://www.w3.org/2000/svg">
+         <polygon  points="20,10 300,20, 170,50" fill="red" />
+      </svg>
+
+
+
+
+
+<svg width="300" height="200">
+  <polygon points="100,10 40,198 190,78 10,78 160,198"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+</svg>
+
+
+<svg height="130" width="500">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">SVG</text>
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+
+<svg id="svgelem" height="200" xmlns="http://www.w3.org/2000/svg">
+		
+         <defs>
+			
+            <radialGradient id="gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+               <stop offset="0%" style="stop-color:rgb(200,200,200); stop-opacity:0"/>
+               <stop offset="100%" style="stop-color:rgb(0,0,255); stop-opacity:1"/>
+            </radialGradient>
+				
+         </defs>
+			
+         <ellipse cx="100" cy="50" rx="100" ry="50" style="fill:url(#gradient)" />
+
+<script>
+e = document.getElementById("anEllipse");
+//e.transform
+//alert(e.transform);
+
+</script>
+</body>
+</html>

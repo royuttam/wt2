@@ -1,0 +1,16 @@
+CACHE MANIFEST
+#9th June, 2016 v0.1
+#It is a comment
+
+CACHE:
+#Files listed here are cached
+W3C.jpg
+
+NETWORK:
+#Files listed here are not cached
+*.jsp
+
+FALLBACK:
+#serve error.html if main is not accessible
+#main.html error.html
+/ error.html

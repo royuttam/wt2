@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<!--outer.html-->
+<span id="result">Outer: </span>
+<script>
+  var sw = new SharedWorker('hello.js');
+/*  sw.port.onmessage = function(e) {
+   document.getElementById('result').innerHTML += '<br>'+e.data;
+  }*/
+  //alert(sw);
+  
+  sw.port.addEventListener('message', function(e) {
+   document.getElementById('result').innerHTML += '<br>'+e.data;
+  }, false);
+  sw.port.start();
+  sw.port.postMessage('Tom');
+  
+</script>
+<br><iframe src="inner.html" height="80"></iframe>

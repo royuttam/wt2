@@ -1,0 +1,21 @@
+<html>
+  <body>
+    Time taken without object transfer : <output id="result"></output> ms.<br>
+	Time taken with object transfer : <output id="result1"></output> ms.
+    <script>
+      var w = new Worker("echo.js");
+	  var w1 = new Worker("echo1.js");
+	  ab = new ArrayBuffer(1024*1024*100);
+      w.onmessage = function(event) {
+		document.getElementById("result").innerHTML=(new Date()-start);
+      }
+	  w1.onmessage = function(event) {
+		document.getElementById("result1").innerHTML=(new Date()-start1);
+      }
+	  start = new Date();
+	  w.postMessage(ab);
+	  start1 = new Date();
+	  w1.postMessage(ab, [ab]);
+    </script>
+  </body>
+</html>
