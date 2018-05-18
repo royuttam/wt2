@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+    #outer{ overflow: hidden; }
+    #inner { width: 400px; }    
+</style>
+
+	<title>New document</title>
+	<script type="text/javascript" src="/wt2/jquery-3.1.0.js"></script>
+</head>
+<body>
+<div id='loc'></div>
+
+<script>
+
+
+jQuery(document).ready(function() {  
+
+$.fn.onAny = function(h){
+  for(var k in this[0])
+    if(k.search('on') === 0)
+      this.on(k.slice(2), h);
+};
+
+
+$(document).mousemove(function(e) {
+  //$('#loc').text(e.pageX+', '+e.pageY);
+});
+
+function handler(e) { 
+  str='type: '+e.type+'<br>';
+  str+='target: '+e.target.nodeName+'<br>';
+  str+='pageX: '+e.pageX+'<br>';
+  str+='pageY: '+e.pageY+'<br>';
+  str+='which: '+e.which+'<br>';
+  str+='metaKey: '+e.metaKey+'<br>';
+  //$('#loc').html(str);
+$('#loc').html(str);
+}
+//$(document).click(handler);
+//$(document).onAny(handler);	//register for document
+//$('p').onAny(handler);		//register for all <p> elements
+
+$(document).click(function() {
+
+$('#outer').animate({width:0});
+//$('#para').hide('slide', {direction: 'left'}, 1000);
+});
+
+	 });
+</script>
+
+<div id='outer'>
+<p id="inner"> This is a paragraph</p>
+</div>
+
+</body>
+</html>

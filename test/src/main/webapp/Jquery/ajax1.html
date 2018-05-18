@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="/wt2/jquery-3.1.0.js"></script>
+  </head>
+  <body>
+    <script language="JavaScript">
+      jQuery(document).ready(function() {  
+        $('#info').submit(function() {
+          $.get(
+            "ajax/test.jsp", 
+            $(this).serialize(),  
+            function(data, status, jqXHR) { 
+              alert(data);
+          });
+        });
+      });
+    </script>
+    <form id='info'>
+      <input type='text' name='name' />
+      <input type='text' name='contact' />
+      <input type='date' name='dob' />
+      <input type='submit' value='submit'/>
+    </form>
+  </body>
+</html>

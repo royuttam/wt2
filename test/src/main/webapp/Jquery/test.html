@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New document</title>
+	<script type="text/javascript" src="/wt2/jquery-3.1.0.js"></script>
+<style>
+.caption {
+   font-size: 26px;
+  }
+</style>
+</head>
+<body>
+<p src="https://abc.com/images/a.jpg" >aaa</p>
+<p hidden>Invisible</p>
+<label>login</label>
+<input type='text'>
+<p hidden>It will not be displayed</p>
+
+<br/>
+Pay now<input type='radio' name='pay' id='now'/><br/>
+Pay Later<input type='radio' name='pay' id='later'/><br/>
+<input type="button" value="clickMe" id='clickMe'/>
+<div id='loc'>aaa</div>
+<div id='grand'>
+<span id='parent' class='left'>
+  Parent
+  <p id='child'>Child</p>
+</span>
+</div>
+
+<script>
+function f() {
+  alert('clickMe clicked');
+}
+
+jQuery(document).ready(function() {  
+
+$('#loc').mousemove(function(e) {
+	//alert($('#loc').html());
+	$('#loc').text(e.pageX+', '+e.pageY);
+});
+
+
+/*
+var x=null;
+$('#now').on('click',function(e) {
+  if($('#dt').length == 1)
+    d = $('#dt').detach();
+});
+
+$('#later').on('click',function(e) {
+  if($('#dt').length == 0 && x == null) 
+      d = $('<input id="dt" type="date">');  
+  $('#later').after(d);
+});
+*/
+
+
+
+//alert($('input[type="text"], input[type="password"]').length);
+/*alert($('script').filter(function(index, ele) {
+    return $(ele).attr('href') !== 'undefined' ;
+}).length);
+
+o=$('script').map(function(index, ele){ return ele.src; });
+for(i in o)
+document.writeln(i+' '+o[i]+'<br/>');
+*/
+
+//alert($('#para').html());
+//$('#para1').insertBefore($('#para'));
+//$('#para').remove();
+
+$( "tr:even" ).css( "background-color", "#bbf" );
+	//alert($('#para').slice(0,2).length);
+	
+//$('#para').after($('#para').clone());
+//$('#parent').after($('#parent').clone());
+
+$('#parent').click(function() { alert('parent');});
+$('#child').click(function() { alert('child');});
+
+$('#clickMe').click(function() {
+  //$(this).after($(this).clone(true));
+
+  //$('#parent').after($('#parent').clone(true));
+
+//  $('#parent').after($('#parent').clone(true,false));
+//alert($('#grand').html());
+//alert($('#parent').clone().html());
+
+$('#parent').toggleClass('caption');
+
+//alert($('#parent').attr('class'));
+
+});
+
+//var col = $('#para').css('color');
+//alert(col);
+//$('#para').css({'color':'blue','background-color':'green'});
+//$('<li>C++</li>').appendTo($('#langs'));
+//var val = $('#txt').attr('value');
+//alert(val);
+
+$('#login').on('click',function(e) {
+//$('#para').slideDown();		//duration 400 milliseconds
+//$('#para').slideDown(1000);
+//$('#para').slideDown('slow');		//duration 600 milliseconds
+//$('#para').slideDown('medium');	//duration 400 milliseconds
+
+$('#para').slideDown(1000, function() {
+  //slide complete
+});	
+
+
+$('#para').slideDown('fast');		//duration 200 milliseconds
+	//alert('You clicked '+e.target.id+' button');
+//alert(e);
+//for (i in e.originalEvent) document.writeln(i);
+//document.writeln('<br><br>');
+//for (i in e) document.writeln(i);
+//$('#para').hide();
+//$('#para').fadeIn();			//duration 400 milliseconds
+//$('#para').fadeIn(2000);		
+//$('#para').fadeIn('slow');		//duration 600 milliseconds
+//$('#para').fadeIn('medium');		//duration 400 milliseconds
+//$('#para').fadeIn('fast');		//duration 200 milliseconds
+
+
+});
+
+$('#hide').click(function() {
+  $('#para').hide(function() {
+     val = confirm('Element is hidden, want to make it visible?');
+     if(val) $(this).show();	
+  });
+});
+
+$('#show').click(function() {
+  $('#para').show('midium');
+});
+
+/*
+$('#toggle').click(function() {
+  $('#para').toggle();
+});
+*/
+
+$("#apara").click(function () {
+    $header = $(this);
+    //getting the next element
+    $content = $header.next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $content.slideToggle(function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        $header.text(function () {
+            //change text based on condition
+            return $content.is(":visible") ? "-" : "+";
+        });
+    });
+});
+
+
+$('#toggle').click(function () {
+    $('#para').slideToggle(function () {
+	$("#toggle").text($("#toggle").text() == "Hide" ? "Show" : "Hide");
+    });
+});
+
+
+$('#animate').click(function () {
+// $('#para').animate({fontSize : '50px', opacity: 0.25}, 1000, 'linear');		//duration 1 second
+ $('#para').animate({fontSize : '50px'}, 5000);		//duration 1 second
+// $('#para').animate({fontSize : '50px'}, 'slow');		//duration 600 milliconds
+// $('#para').animate({fontSize : '50px'}, 'medium');		//duration 400 milliconds
+// $('#para').animate({fontSize : '50px'}, 'fast');		//duration 200 milliconds
+//$('#para').animate({fontSize : '50px'}, 'fast', 'linear', function() {
+//    alert('animation complete');
+//  });		
+});
+
+$('#stop').click(function () {
+  $('#para').stop();
+});
+
+//$('#login').trigger('click');
+
+
+
+        //alert($('tr').map(function(index){return index;}).each(function(){alert(this)}));
+	//alert($(':root').prop("tagName"));
+	//alert($('li:news').closest("div").prop("tagName"));
+	//alert($('#books').next().end().prop("tagName"));
+	//alert($(':disabled').removeAttr("disabled"));
+	//alert($('nth-child(1)').text());
+          //alert($('button').attr("type"));
+	 });
+</script>
+
+<a id='apara'>-</a>
+<div>
+this is a test
+</div>
+
+<input id='login' type='submit' value='login'>
+
+<input id='txt' type='text' value='Some value'>
+
+<input type="text" id="roll" value="aaa">
+<p  align="right">This is a paragraph</p>
+
+<button id='hide'>Hide</button>
+<button id='show'>Show</button>
+<button id='toggle'>Hide</button>
+<button id='animate'>Animate</button>
+<button id='stop'>Stop</button>
+<p id='para'>A paragraph</p>
+<p id="para1">Another paragraph</p>
+<br><br><br>
+
+<p align="left">This is another paragraph</p>
+<div align="left">This is another paragraph</div>
+<p color="red">This is a paragraph</p>
+<p color="red" align="right">This is a paragraph</p>
+
+<font color="#00FF00" align="right">This is a paragraph</font>
+<div color="red" align="right">This is a paragraph</div>
+
+<form id="login">
+<input type="text">
+<input type="submit">
+<input type="reset">
+<select name="carlist" form="carform">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>
+<input type='checkbox' checked>
+<textarea name="message" rows="10" cols="30">
+The cat was playing in the garden.
+</textarea>
+<button>aaa</button>
+<input type='button'>
+
+</form>
+<input type='password' value="aaaa">
+<p name="first para">First paragraph</p>
+<p name="second para">Second paragraph</p>
+
+<p>sadJavaScript dssa</p>
+<button disabled>abutton</button>
+
+<ul id="langs">
+<li>Java</li>
+</ul>
+<p></p>
+<div></div>
+
+<ol>
+<li class="news">aaa</li>
+<li class="langs">aaa</li>
+<li>bbb</li>
+<ol>
+</ol>
+</ol>
+
+
+<ul>
+<li>
+<ul>
+<li>aaa</li>
+<li>bbb</li>
+</ul>
+</li>
+</ul>
+
+
+<h1></h1>
+<h2></h2>
+
+<img src="a.jpg"/>
+<input type="image"/>
+
+<table border="1">
+  <tr><td>Row with Index #0</td></tr>
+  <tr><td>Row with Index #1</td></tr>
+  <tr><td>Row with Index #2</td></tr>
+  <tr><td>Row with Index #3</td></tr>
+</table>
+
+<table border="1">
+  <tr><td>Row with Index #0</td></tr>
+  <tr><td>Row with Index #1</td></tr>
+  <tr><td>Row with Index #2</td></tr>
+  <tr><td>Row with Index #3</td></tr>
+</table>
+ 
+</body>
+</html>

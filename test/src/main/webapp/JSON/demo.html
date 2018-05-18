@@ -1,0 +1,190 @@
+<html>
+  </head>
+  <body>
+  <!--
+    <form action="http://127.0.0.1:8080/quercus-4.0.39/JSON/demo.php">
+	  <input type="text" name='JSONStr' value='{"name":"Jerry", "designation":"Professor","contact":9830613451}'>
+	  <input type="submit" >
+	</form>
+	-->
+	  <script language="JavaScript">
+	  
+	/*
+     JSObject = {"name":"John", "age":38, "married":true};
+     JSONText = JSON.stringify(JSObject);	 
+	 //JSONText = '{"name":"John","age":38,"married":true}'
+	 JSONText = '{"name":"John","age":38,"married":true}';
+     JSObject = JSON.parse(JSONText);
+	 for(i in JSObject) document.writeln(i+': '+JSObject[i]+'<br>');
+     //alert(o.name+" "+o.age+" "+o.married);
+     //alert(JSON.stringify(obj));	 
+	 
+	
+	 a = [ 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 ];
+	 for(i in a) document.writeln(i+': '+a[i]+'<br>');
+    
+	
+	o={ 
+  "name":"Tom", 
+  "age":38, 
+  "salary": { "basic":30000, "DA": 25000 }
+};
+
+	for(i in o.salary) document.writeln(i+': '+o.salary[i]+'<br>');
+	
+	
+obj = {"name":"John", "age":38, "married":true};
+
+obj = new Object();
+obj.name = "John";
+obj.age = 38;
+obj.married = true;
+
+obj = new Object();
+obj["name"] = "John";
+obj["age"] = 38;
+obj["married"] = true;
+
+name = obj.name;			//name = "John"
+age = obj.age;				//age = 38
+married = obj.married;		//married = true
+
+document.writeln(name+' '+age+' '+married);
+
+text = JSON.stringify(obj);
+//text = '{"name":"John","age":38,"married":true}'
+document.writeln(text);
+
+text = '{"name":"John","age":38,"married":true}';
+obj = JSON.parse(text);
+name = obj.name;			//name = "John"
+age = obj.age;				//age = 38
+married = obj.married;		//married = true
+document.writeln(name+' '+age+' '+married);
+
+
+text = '{ "name":"John", "age":38, "salary": { "basic":30000, "DA": 25000 } }';
+
+obj = JSON.parse(text);
+name = obj.name;			//name = "John"
+age = obj.age;				//age = 38
+basic = obj.salary.basic;	//basic = 30000
+DA = obj.salary.DA;			//DA = 25000
+document.writeln(name+' '+age+' '+basic+' '+DA);
+	
+text = '[ [ "John", 38, 55000 ], [ "Jane", 25, 45000] ]';
+arr = JSON.parse(text);
+name = arr[0][0];			//name = "John"
+age = arr[0][1];			//age = 38
+salary = arr[1][2];			//salary = 45000
+document.writeln(name+' '+age+' '+salary);
+*/
+
+text ='{ "name":"John", "age":38, "salary": [ 30000, 25000 ] }';
+obj = JSON.parse(text);
+name = obj.name;			//name = "John"
+age = obj.age;				//age = 38
+basic = obj.salary[0];		//basic = 30000
+DA = obj.salary[1];			//DA = 25000
+document.writeln(name+' '+age+' '+basic+' '+DA);
+
+
+obj = { "name":"John", "age":38, "salary": { "basic":30000, "DA": 25000 } };
+obj.toJSON = function() {
+  o = {};
+  o.name = this.name;
+  o.sal = {};
+  o.sal.ba = this.salary.basic;
+  o.sal.DA = this.salary.DA;
+  return o;
+}
+text = JSON.stringify(obj);
+document.writeln(text);
+
+
+
+	//p='{"name":"Jerry", "designation":"Professor", "contact":9830613451}';
+	//o={"name":"Jerry", "designation":"Professor", "contact":9830613451};
+	/*
+	o = new Object();
+	o.name="Jerry";
+	o.designation="Professor";
+	o.contact=9830613451;
+	
+	
+	o = new Object();
+	o["name"]="Jerry";
+	o["designation"]="Professor";
+	o["contact"]=9830613451;
+	
+o={"books":
+    [
+      {"title":"Web Technologies", "isbn":9780198066224},
+      {"title":"Advanced Java Programming", "isbn":9780199455508}
+    ]
+  }  
+  title = o.books[0].title;	//title="Web Technologies"
+  isbn = o.books[1].isbn;	//isbn = 9780199455508  
+  document.writeln(title+" "+isbn);
+
+books=[ 
+    {"title":"Web Technologies", "isbn":9780198066224},
+    {"title":"Advanced Java Programming", "isbn":9780199455508}
+  ]
+title = books[0].title;   	//title="Web Technologies" 
+isbn = books[1].isbn;		//isbn = 9780199455508  
+document.writeln(title+" "+isbn);
+
+books=[ 
+    ["Web Technologies", 9780198066224],
+    ["Advanced Java Programming", 9780199455508]
+  ]
+title = books[0][0];   	//title="Web Technologies" 
+isbn = books[1][1];		//isbn = 9780199455508  
+document.writeln(title+" "+isbn);
+
+o={
+   "wt":{"isbn":9780198066224, "price":565},
+   "ajp":{"isbn":9780199455508, "price":695}
+  }  
+  isbn = o.wt.isbn;	//isbn=9780198066224
+  price = o.ajp.price;	//price=685  
+  document.writeln(isbn+" "+price);
+    
+  o={ 
+      "name":"Jerry", 
+	  "designation":"Professor", 
+	  "contact": 
+	  {
+	    "email":"jerry@gmai.com",
+		"mobile":9830613451
+	  }
+	};
+	name = o.name;				//name="Jerry"
+	email = o.contact.email;	//email=jerry@gmail.com
+	document.writeln(name+" "+email);
+	
+	
+	o={
+	    "name":"Tom",
+	    "retired":false,
+	    "married":true
+	  };
+	retired = o.retired;	//retired = false
+	married = o.married;	//married = true
+	document.writeln(retired+" "+married);
+	
+	
+	//var chaitanya = {"name" : "Chaitanya Singh", "age" : "28", "website" : "beginnersbook"};
+	var chaitanya = {};
+
+//var chaitanya1 = '{"name" : "Chaitanya Singh", "age" : "28", "website" : "beginnersbook"}';
+//alert(chaitanya);
+var myJSObject = JSON.parse(chaitanya1);
+//alert(myJSObject);
+*/
+	//document.writeln(JSON.stringify(o));
+//document.writeln(JSON.parse(p).name);
+	</script>
+  </body>
+</html>

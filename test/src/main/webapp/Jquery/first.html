@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New document</title>
+	<script type="text/javascript" src="/wt2/jquery-3.1.0.js"></script>
+</head>
+<body>
+<div class="trigger">Trigger</div>
+<div class="result"></div>
+<div class="log"></div>
+<div id="target">0000000000000</div>
+
+<script >  
+ jQuery(document).ready(function() {  
+	 alert($("p").length);
+	 o=jQuery(document);
+	 //o=document;
+	 
+	 //for(i in o) document.writeln(i+' '+o[i]+'<br>');
+	
+	//for(i in jQuery) document.writeln(i+' '+jQuery[i]+'<br>');
+	 
+//alert(typeof(jQuery));
+
+var theObject = { p1: "v1", p2 : "v2" };
+//alert(JSON.stringify(theObject));
+
+var jqxhr =
+    $.ajax({
+        url: "ajax/test.jsp",
+	//dataType: "json",
+	dataType: "script",
+        data: {
+	  param1: "value1",
+	  param2: "value2"
+        }
+    })
+    .done  (
+        function(data, textStatus, jqXHR)        { 
+	alert(data);
+//        alert(JSON.stringify(data));
+	//a=$(this);
+        //for(i in a) document.writeln(i+' '+a[i]+'<br>');
+           $("#target").text(data);
+//          alert(data);
+        }
+    )
+    .fail  (function(jqXHR, textStatus, errorThrown) { 
+//alert("Error")   ; 
+})
+    ;
+
+
+
+ $("p").css("background-color", "pink");  
+ 
+
+$( ".trigger" ).click(function() {
+  $( ".result" ).load( "ajax/test.html" );
+});
+
+$( document ).ajaxComplete(function() {
+  $( ".log" ).text( "Triggered ajaxComplete handler." );
+});
+
+
+
+
+
+ });  
+ 
+ </script>
+
+<p>abc</p>
+<p>xyz</p>
+</body>
+</html>

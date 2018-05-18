@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New document</title>
+	<script type="text/javascript" src="/wt2/jquery-3.1.0.js"></script>
+</head>
+<body>
+<script language="JavaScript">
+jQuery(document).ready(function() {  
+
+/*
+var o = $.ajax({
+        url: "ajax/test.jsp",
+	//dataType: "json",
+	//dataType: "script",
+        data: {
+	  param1: "value1",
+	  param2: "value2"
+        }
+    });
+*/
+//for (i in o)
+//document.writeln(i+' '+o[i]+'<br>');
+
+
+
+
+  //$.ajax({url:"ajax/hello.jsp"})
+
+/*,
+	{
+        //url: "ajax/test.jsp",
+	//dataType: "json",
+	//dataType: "script",
+        data: {
+	  param1: "value1",
+	  param2: "value2"
+        }
+    })
+    .done  (
+        function(data, textStatus, jqXHR)        { 
+	alert(data);
+//        alert(JSON.stringify(data));
+	//a=$(this);
+        //for(i in a) document.writeln(i+' '+a[i]+'<br>');
+ //          $("#target").text(data);
+//          alert(data);
+        }
+    )
+*/
+
+/*
+$.ajax({url:"ajax/hello.jsp"})
+.done( function(data, status, jqXHR) { alert('Success: ' + data); } )
+.fail( function(jqXHR, status, error) { alert('Error occurred'); } )
+.always( function(o1, status, o2) { alert('Complete'+o1+status+o2); } )
+
+$.ajax({
+	url:"ajax/hello.jsp", 
+	success: function(data, status, jqXHR) { alert('Success: ' + data); },
+	error: function(jqXHR, status, error) { alert('Error occurred'); },
+	complete: function(jqXHR, status) { alert('Complete'); }
+})
+
+
+$.ajax({
+	url:"ajax/test.jsp?a=2,b=3", 
+	success: function(data, status, jqXHR) { alert('Success: ' + data); },
+	error: function(jqXHR, status, error) { alert('Error occurred'); },
+})
+
+$.ajax({
+	url:"ajax/test.jsp", 
+	data: {"a":2, "b":3},
+	success: function(data, status, jqXHR) { alert('Success: ' + data); },
+	error: function(jqXHR, status, error) { alert('Error occurred'); },
+})
+*/
+/*
+$.ajax({
+	//url:"ajax/data.jsp?a=2&b=3", 
+	url:"ajax/data.jsp", 
+	//data: {"a":2, "b":3},
+	//type: "GET",
+	type: "POST",
+	//dataType: "json",
+	//dataType: "xml",
+	//dataType: "script",
+	data: "Some data",	
+	processData : false,
+
+	success: function(data, status, jqXHR) { 
+		//alert('Success: ' + data+' '+typeof(data)+jqXHR.getResponseHeader("content-type")); 
+		//alert(data.x+' '+data.y);
+		//alert(data.firstChild.firstChild.nodeValue);
+		alert(data);
+		//$("#target").text(data);
+		//data;
+
+	},
+	error: function(jqXHR, status, error) { alert('Error occurred'); },
+})
+
+$.ajax({
+	url:"ajax/process.jsp", 
+	type: "POST",
+	//data: "Some data",
+	data: JSON.stringify({"x" : 2, "y" : 3}),
+	processData : false,
+	success: function(data, status, jqXHR) { alert(data);},
+	error: function(jqXHR, status, error) { alert('Error occurred'); },
+});
+*/
+
+
+
+//$.post("ajax/test.jsp", {"x": 2, "y": 3}, function(data, status, jqXHR) { alert(data);});
+
+$('p').load("ajax/test.jsp #msg");
+//, function() {
+//  alert('Insertion complete');
+//});
+/*
+$.getJSON(
+	"ajax/test.jsp", 
+	{"x": 2, "y": 3}, 
+	function(data, status, jqXHR) { 
+		a = data.a;	//a = 5
+		b = data.b;	//b = 6
+	}
+);
+*/
+
+//$.getScript("ajax/test.js");
+//$.getScript("ajax/test.js",function(script, status, jqXHR) { alert(script);});
+
+
+//.always( function(o1, status, o2) { alert('Complete'+o1+status+o2); } )
+//for (i in o)
+//document.writeln(i+' '+o[i]+'<br>');
+
+
+});
+
+</script>
+<form>
+</form>
+<p id="para"/>
+<p></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      #outer{ overflow: hidden; }
+      #inner { width: 400px; }    
+    </style>
+    <script type="text/javascript" src="/wt2/jquery-3.1.0.js"></script>
+  </head>
+  <body>
+    <script>
+      jQuery(document).ready(function() {  
+        $('#aButton').click(function() {
+          $('#outer').animate({ width:0 });
+        });
+      });
+    </script>
+    <button id='aButton'>Animate Left</button>
+    <div id='outer'>
+      <p id="inner"> This is a paragraph</p>
+    </div>
+  </body>
+</html>
