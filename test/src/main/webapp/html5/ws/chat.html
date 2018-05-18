@@ -3,7 +3,8 @@
     <script lang="JavaScript">
         function start(name) {
             if (window.WebSocket) {
-				socket = new WebSocket('ws://' + window.location.host + '/chat/'+name);
+		    alert('wss://' + window.location.host + '/chat/'+name);
+				socket = new WebSocket('wss://' + window.location.host + '/chat/'+name);
             } else {
 				show('Error: Your browser does not support WebSocket.');
                 return;
